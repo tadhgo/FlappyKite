@@ -12,7 +12,7 @@ brew install xcbeautify
 echo "--- :bash: Configure application for testing :bash:"
 sed \
     -e "s|__SENTRY_DSN_HOST_REPLACE__||g" \
-    -e "s|__SENTRY_DSN_PATH__|$(|g" \
+    -e "s|__SENTRY_DSN_PATH__||g" \
     Config.xcconfig.template > Config.xcconfig
 
 echo "--- :xcode: Testing :xcode:"

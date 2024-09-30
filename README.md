@@ -9,6 +9,6 @@ For local development you can just generate empty sentry configuration.
 ```
 sed \
     -e "s|__SENTRY_DSN_HOST_REPLACE__||g" \
-    -e "s|__SENTRY_DSN_PATH__|$(|g" \
+    -e "s|__SENTRY_DSN_PATH__||g" \
     Config.xcconfig.template > Config.xcconfig
 ```
