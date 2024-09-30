@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  FlappyKite
+//
+//  Created by Mark Wolfe on 30/9/2024.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+SENTRY_DSN_HOST = __SENTRY_DSN_HOST_REPLACE__
+SENTRY_DSN_PATH = __SENTRY_DSN_PATH__

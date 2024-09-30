@@ -1,0 +1,8 @@
+agents:
+  queue: mac
+
+steps:
+  - label: ":ruby: install dependencies"
+    command: .buildkite/scripts/install-dependencies.sh
+  - label: ":apple: build"
+    command: .buildkite/scripts/build.sh
