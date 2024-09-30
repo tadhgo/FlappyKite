@@ -3,6 +3,8 @@ agents:
 
 steps:
   - label: ":ruby: install dependencies"
+    key: install-dependencies-ruby
     command: .buildkite/scripts/install-dependencies.sh
   - label: ":apple: build"
     command: .buildkite/scripts/build.sh
+    depends_on: [install-dependencies-ruby]
