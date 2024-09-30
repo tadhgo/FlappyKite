@@ -5,10 +5,6 @@ steps:
   - label: ":ruby: install dependencies"
     key: install-dependencies-ruby
     command: .buildkite/scripts/install-dependencies.sh
-    artifact_paths:
-      - vendor
   - label: ":apple: build"
     command: .buildkite/scripts/build.sh
     depends_on: [install-dependencies-ruby]
-    artifact_paths:
-      - SwiftPackages
