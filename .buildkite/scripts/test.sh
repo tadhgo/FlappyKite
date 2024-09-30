@@ -15,5 +15,11 @@ sed \
     -e "s|__SENTRY_DSN_PATH__||g" \
     Config.xcconfig.template > Config.xcconfig
 
+# echo "--- :xcode: Testing :xcode:"
+# xcodebuild clean test -clonedSourcePackagesDirPath SwiftPackages -scheme FlappyKite -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' | xcbeautify
+
+echo "-- :ruby: Installing dependencies..."
+bundle install
+
 echo "--- :xcode: Testing :xcode:"
-xcodebuild clean test -clonedSourcePackagesDirPath SwiftPackages -scheme FlappyKite -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' | xcbeautify
+bundle exec fastlane tests
