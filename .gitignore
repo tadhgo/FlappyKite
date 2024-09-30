@@ -37,3 +37,7 @@ vendor
 
 # Settings file
 Config.xcconfig
+
+# fastlane
+fastlane/report.xml
+fastlane/test_output/report.junit
