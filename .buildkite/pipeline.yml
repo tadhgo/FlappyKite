@@ -12,3 +12,5 @@ steps:
   - label: ":apple: test"
     command: .buildkite/scripts/test.sh
     depends_on: [build-apple]
+    artifact_paths: 
+      - "fastlane/test_output/report.junit"

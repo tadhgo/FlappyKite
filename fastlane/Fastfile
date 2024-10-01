@@ -22,6 +22,7 @@ platform :ios do
       scheme: 'FlappyKite',
       derived_data_path: './DerivedData',
       # device: 'iPhone 16',
+      devices: ['iPhone 15 Pro'],
       prelaunch_simulator: true,
       code_coverage: true
     )
