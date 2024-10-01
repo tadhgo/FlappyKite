@@ -21,8 +21,8 @@ platform :ios do
     run_tests(
       scheme: 'FlappyKite',
       derived_data_path: './DerivedData',
-      # device: 'iPhone 16',
-      devices: ['iPhone 15 Pro'],
+      devices: ['iPhone 16 (18.0)', 'iPad mini (6th generation) (18.0)'],
+      ensure_devices_found: true,
       prelaunch_simulator: true,
       code_coverage: true
     )
