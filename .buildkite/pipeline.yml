@@ -1,5 +1,5 @@
 agents:
-  queue: macos
+  queue: macos-large
 
 steps:
   - label: ":ruby: install dependencies"
@@ -14,5 +14,3 @@ steps:
     depends_on: [build-apple]
     artifact_paths: 
       - "fastlane/test_output/report.junit"
-    agents:
-      queue: macos-large
