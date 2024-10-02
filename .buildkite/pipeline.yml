@@ -5,11 +5,11 @@ steps:
   - label: ":ruby: install dependencies"
     key: install-dependencies-ruby
     command: .buildkite/scripts/install-dependencies.sh
-  - label: ":apple: build"
+  - label: ":macos: build"
     key: build-apple
     command: .buildkite/scripts/build.sh
     depends_on: [install-dependencies-ruby]
-  - label: ":apple: test"
+  - label: ":macos: test"
     command: .buildkite/scripts/test.sh
     depends_on: [build-apple]
     artifact_paths: 
