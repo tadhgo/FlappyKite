@@ -1,6 +1,10 @@
 # FlappyKite
 
-This is an example iOS application which is being used to demonstrate and test out Buildkite Hosted macOS agents.
+This is an example iOS application which is being used to demonstrate
+Buildkite Hosted macOS agents. A
+[getting started guide](https://buildkite.com/docs/pipelines/hosted-agents/mobile-delivery-cloud/getting-started)
+is also available to provide a comprehensive overview of the Buildkite platform
+and how this repository can be used.
 
 ## Features
 
