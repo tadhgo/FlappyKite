@@ -5,12 +5,23 @@ steps:
   - label: ":ruby: install dependencies"
     key: install-dependencies-ruby
     command: .buildkite/scripts/install-dependencies.sh
+
   - label: ":macos: build"
     key: build-apple
     command: .buildkite/scripts/build.sh
-    depends_on: [install-dependencies-ruby]
+    depends_on:
+      - install-dependencies-ruby
+#    plugins:
+#      - ipa-to-s3#v1.0.0:
+#            title: FlappyKite
+#            bundle-id: buildkite.io.flappykite
+#            plist-path: app.plist
+#            generate-qr-code: false
+#            package-registry: flappykite
+
   - label: ":macos: test"
     command: .buildkite/scripts/test.sh
-    depends_on: [build-apple]
+    depends_on:
+      - build-apple
     artifact_paths: 
       - "fastlane/test_output/report.junit"
