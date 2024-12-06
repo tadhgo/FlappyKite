@@ -26,9 +26,11 @@ final class FlappyKiteUITests: XCTestCase {
     func testExample() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
+        setupSnapshot(app)
         app.launch()
 
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        snapshot("01MainScreen")
     }
 
     @MainActor
@@ -37,6 +39,7 @@ final class FlappyKiteUITests: XCTestCase {
             // This measures how long it takes to launch your application.
             measure(metrics: [XCTApplicationLaunchMetric()]) {
                 XCUIApplication().launch()
+                snapshot("02LaunchedScreen")
             }
         }
     }
