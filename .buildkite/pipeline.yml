@@ -18,3 +18,10 @@ steps:
       - build-apple
     artifact_paths: 
       - "fastlane/test_output/report.junit"
+
+  - label: ":macos: :camera: screenshots"
+    command: .buildkite/scripts/screenshots.sh
+    depends_on:
+      - build-apple
+    artifact_paths:
+      - "screenshots"
