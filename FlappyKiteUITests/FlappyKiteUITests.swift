@@ -30,6 +30,9 @@ final class FlappyKiteUITests: XCTestCase {
         app.launch()
 
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        app.buttons["Add Item"].tap()
+        app.buttons["Add Item"].tap()
+        app.buttons["Add Item"].tap()
         snapshot("01MainScreen")
     }
 
