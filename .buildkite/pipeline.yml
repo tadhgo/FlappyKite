@@ -24,4 +24,4 @@ steps:
     depends_on:
       - build-apple
     artifact_paths:
-      - "screenshots"
+      - "screenshots/**/*.png"
