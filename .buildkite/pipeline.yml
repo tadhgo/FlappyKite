@@ -25,3 +25,37 @@ steps:
       - build-apple
     artifact_paths:
       - "screenshots/**/*.png"
+
+  - label: ":bazel: build"
+    key: bazel-build
+    soft_fail: true
+    cache:
+      paths:
+        - ".cache"
+      size: "20g"
+    plugins:
+      - docker-compose#v5.3.0:
+          run: app
+          config: .buildkite/docker-compose.yml
+          shell: false
+          command: ["build", "--config=buildkite", "--", "//..."]
+    agents:
+      queue: hosted_linux_small
+
+  - label: ":bazel: test"
+    key: bazel-test
+    depends_on:
+      - bazel-build
+    soft_fail: true
+    cache:
+      paths:
+        - ".cache"
+      size: "20g"
+    plugins:
+      - docker-compose#v5.3.0:
+          run: app
+          config: .buildkite/docker-compose.yml
+          shell: false
+          command: ["test", "--config=buildkite", "--", "//..."]
+    agents:
+      queue: hosted_linux_small
