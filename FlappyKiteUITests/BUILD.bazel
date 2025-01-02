@@ -1,0 +1,17 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_ui_test")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+ios_ui_test(
+    name = "FlappyKiteUITests",
+    bundle_id = "com.buildkite.FlappyKiteUITests",
+    minimum_os_version = "17.0",
+    test_host = "//FlappyKite:FlappyKite",
+    deps = [":FlappyKiteUITests.library"],
+)
+
+swift_library(
+    name = "FlappyKiteUITests.library",
+    srcs = glob(["**/*.swift"]),
+    module_name = "FlappyKiteUITests",
+    testonly = True,
+)

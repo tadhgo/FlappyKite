@@ -1,0 +1,49 @@
+load("@bazel_skylib//rules:expand_template.bzl", "expand_template")
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_application")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+ios_application(
+    name = "FlappyKite",
+    bundle_id = "com.buildkite.flappykite",
+    entitlements = "FlappyKite.entitlements",
+    extensions = [],
+    families = [
+        "iphone",
+    ],
+    infoplists = [":InfoPlist"],
+    minimum_os_version = "17.0",
+    resources = glob(
+        [
+            "Preview Content/**",
+            "Assets.xcassets/**",
+        ],
+        exclude = [
+            ".*",
+            "Preview Content/Preview Assets.xcassets",
+        ],
+    ),
+    visibility = ["//visibility:public"],
+    deps = [":FlappyKite.library"],
+)
+
+swift_library(
+    name = "FlappyKite.library",
+    srcs = glob(["**/*.swift"]),
+    module_name = "FlappyKite",
+    visibility = ["//FlappyKiteTests:__pkg__"],
+    deps = [
+        "@swiftpkg_sentry_cocoa//:Sentry"
+    ],
+)
+
+expand_template(
+    name = "InfoPlist",
+    out = "Bazel.Info.plist",
+    substitutions = {
+        "$(CURRENT_PROJECT_VERSION)": "1",
+        "$(MARKETING_VERSION)": "2024.12",
+        "$(SENTRY_DSN_HOST)": "localhost",
+        "$(SENTRY_DSN_PATH)": "/",
+    },
+    template = "Info.plist",
+)

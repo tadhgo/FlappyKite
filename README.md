@@ -20,11 +20,38 @@ For additional components, see [the TODO](#todo) below!
 
 For local development you can generate an empty sentry configuration.
 
-```
+```sh
 sed \
     -e "s|__SENTRY_DSN_HOST_REPLACE__||g" \
     -e "s|__SENTRY_DSN_PATH__||g" \
     Config.xcconfig.template > Config.xcconfig
+```
+
+## Bazel configuration
+
+A Bazel workspace has been configured for FlappyKite, with all required `BUILD`,
+`MODULE`, and `WORKSPACE` files included. These are **purely additive** to the
+project and are not required to be used or kept, they can safely be ignored.
+
+### Building
+
+Similar to the local XCode development, the Sentry configuration is stored within
+the `FlappyKite/Info.plist` file as hard-coded strings. The specific `SentryDSN`
+value can be updated as required for individual requirements.
+
+To run the Bazel build, use the following command.
+
+```sh
+bazelisk build //FlappyKite:FlappyKite
+```
+
+### Tests
+
+There are unit and UI tests configured, these can be run via their own commands.
+
+```sh
+bazelisk test //FlappyKiteTests:FlappyKiteTests
+bazelisk test //FlappyKiteUITests:FlappyKiteUITests
 ```
 
 ## Contributing
@@ -44,4 +71,3 @@ MIT, see [LICENSE](LICENSE).
 - Skeleton configuration for publishing to the App Store.
 - Capture screenshots and artifact them.
 - A generated artifact of the IPA file that can be installed locally.
-

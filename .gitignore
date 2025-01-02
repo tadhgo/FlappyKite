@@ -42,3 +42,7 @@ Config.xcconfig
 fastlane/report.xml
 fastlane/test_output/report.junit
 /screenshots/*
+
+# Bazel related paths
+bazel-*
+.build
