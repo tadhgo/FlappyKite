@@ -1,0 +1,80 @@
+{
+  "direct_dep_identities": [
+    "sentry-cocoa"
+  ],
+  "modules": [
+    {
+      "name": "Sentry-Dynamic",
+      "c99name": "Sentry_Dynamic",
+      "src_type": "binary",
+      "label": "@swiftpkg_sentry_cocoa//:Sentry-Dynamic.rspm",
+      "package_identity": "sentry-cocoa",
+      "product_memberships": [
+        "Sentry-Dynamic"
+      ]
+    },
+    {
+      "name": "Sentry",
+      "c99name": "Sentry",
+      "src_type": "binary",
+      "label": "@swiftpkg_sentry_cocoa//:Sentry.rspm",
+      "package_identity": "sentry-cocoa",
+      "product_memberships": [
+        "Sentry",
+        "SentrySwiftUI"
+      ]
+    },
+    {
+      "name": "SentryInternal",
+      "c99name": "SentryInternal",
+      "src_type": "objc",
+      "label": "@swiftpkg_sentry_cocoa//:SentryInternal.rspm",
+      "package_identity": "sentry-cocoa",
+      "product_memberships": [
+        "SentrySwiftUI"
+      ]
+    },
+    {
+      "name": "SentrySwiftUI",
+      "c99name": "SentrySwiftUI",
+      "src_type": "swift",
+      "label": "@swiftpkg_sentry_cocoa//:SentrySwiftUI.rspm",
+      "package_identity": "sentry-cocoa",
+      "product_memberships": [
+        "SentrySwiftUI"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "identity": "sentry-cocoa",
+      "name": "Sentry",
+      "type": "library",
+      "label": "@swiftpkg_sentry_cocoa//:Sentry"
+    },
+    {
+      "identity": "sentry-cocoa",
+      "name": "Sentry-Dynamic",
+      "type": "library",
+      "label": "@swiftpkg_sentry_cocoa//:Sentry-Dynamic"
+    },
+    {
+      "identity": "sentry-cocoa",
+      "name": "SentrySwiftUI",
+      "type": "library",
+      "label": "@swiftpkg_sentry_cocoa//:SentrySwiftUI"
+    }
+  ],
+  "packages": [
+    {
+      "name": "swiftpkg_sentry_cocoa",
+      "identity": "sentry-cocoa",
+      "remote": {
+        "commit": "c1404acfa3a71e42aa789c6d5564da59d4377569",
+        "remote": "https://github.com/getsentry/sentry-cocoa",
+        "version": "8.42.1"
+      },
+      "cxxLanguageStandard": "c++14"
+    }
+  ]
+}

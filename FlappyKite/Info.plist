@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-<key>SentryDSN</key>
-<string>https://$(SENTRY_DSN_HOST)/$(SENTRY_DSN_PATH)</string>
-</dict>
+    <dict>
+        <key>SentryDSN</key>
+        <string>https://$(SENTRY_DSN_HOST)/$(SENTRY_DSN_PATH)</string>
+        <key>CFBundleShortVersionString</key>
+        <string>$(MARKETING_VERSION)</string>
+        <key>CFBundleVersion</key>
+        <string>$(CURRENT_PROJECT_VERSION)</string>
+    </dict>
 </plist>

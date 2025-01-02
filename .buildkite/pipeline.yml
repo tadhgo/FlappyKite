@@ -16,7 +16,7 @@ steps:
     command: .buildkite/scripts/test.sh
     depends_on:
       - build-apple
-    artifact_paths: 
+    artifact_paths:
       - "fastlane/test_output/report.junit"
 
   - label: ":macos: :camera: screenshots"

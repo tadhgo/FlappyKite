@@ -1,0 +1,2 @@
+build --cxxopt='-std=c++14'
+build --action_env SENTRY_DSN_PATH= --action_env SENTRY_DSN_HOST=
