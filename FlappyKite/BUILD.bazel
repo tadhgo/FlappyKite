@@ -42,8 +42,8 @@ expand_template(
     substitutions = {
         "$(CURRENT_PROJECT_VERSION)": "1",
         "$(MARKETING_VERSION)": "2024.12",
-        "$(SENTRY_DSN_HOST)": "localhost",
-        "$(SENTRY_DSN_PATH)": "/",
+        "$(SENTRY_DSN_HOST)": "",
+        "$(SENTRY_DSN_PATH)": "",
     },
     template = "Info.plist",
 )
