@@ -31,9 +31,7 @@ swift_library(
     srcs = glob(["**/*.swift"]),
     module_name = "FlappyKite",
     visibility = ["//FlappyKiteTests:__pkg__"],
-    deps = [
-        "@swiftpkg_sentry_cocoa//:Sentry"
-    ],
+    deps = ["@swiftpkg_sentry_cocoa//:Sentry"],
 )
 
 expand_template(

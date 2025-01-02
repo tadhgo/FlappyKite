@@ -11,7 +11,7 @@ ios_ui_test(
 
 swift_library(
     name = "FlappyKiteUITests.library",
+    testonly = True,
     srcs = glob(["**/*.swift"]),
     module_name = "FlappyKiteUITests",
-    testonly = True,
 )

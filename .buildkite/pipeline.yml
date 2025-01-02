@@ -25,3 +25,23 @@ steps:
       - build-apple
     artifact_paths:
       - "screenshots/**/*.png"
+
+  - label: ":bazel: build"
+    key: bazel-build
+    command: "bazelisk build //FlappyKite:FlappyKite"
+    cache:
+      paths:
+        - ".cache"
+      size: "20g"
+      name: "bazel"
+
+  - label: ":bazel: test"
+    key: bazel-test
+    depends_on:
+      - bazel-build
+    command: "bazelisk build //FlappyKiteTests:FlappyKiteTests //FlappyKiteUITests:FlappyKiteUITests"
+    cache:
+      paths:
+        - ".cache"
+      size: "20g"
+      name: "bazel"
