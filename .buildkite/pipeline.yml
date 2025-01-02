@@ -28,15 +28,7 @@ steps:
 
   - label: ":bazel: build"
     key: bazel-build
-    soft_fail: true
-    command:
-      [
-        "bazelisk",
-        "build",
-        "--config=buildkite",
-        "--",
-        "//FlappyKite:FlappyKite",
-      ]
+    command: "bazelisk build --config=buildkite -- //FlappyKite:FlappyKite"
     cache:
       paths:
         - ".cache"
@@ -53,16 +45,7 @@ steps:
     key: bazel-test
     depends_on:
       - bazel-build
-    soft_fail: true
-    command:
-      [
-        "bazelisk",
-        "build",
-        "--config=buildkite",
-        "--",
-        "//FlappyKiteTests:FlappyKiteTests",
-        "//FlappyKiteUITests:FlappyKiteUITests",
-      ]
+    command: "bazelisk build --config=buildkite -- //FlappyKiteTests:FlappyKiteTests //FlappyKiteUITests:FlappyKiteUITests"
     cache:
       paths:
         - ".cache"
