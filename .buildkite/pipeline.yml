@@ -29,16 +29,23 @@ steps:
   - label: ":bazel: build"
     key: bazel-build
     soft_fail: true
+    command:
+      [
+        "bazelisk",
+        "build",
+        "--config=buildkite",
+        "--",
+        "//FlappyKite:FlappyKite",
+      ]
     cache:
       paths:
         - ".cache"
       size: "20g"
     plugins:
       - docker-compose#v5.3.0:
-          run: app
+          run: bazel-remote
           config: .buildkite/docker-compose.yml
           shell: false
-          command: ["build", "--config=buildkite", "--", "//..."]
     agents:
       queue: hosted_linux_small
 
@@ -47,15 +54,23 @@ steps:
     depends_on:
       - bazel-build
     soft_fail: true
+    command:
+      [
+        "bazelisk",
+        "build",
+        "--config=buildkite",
+        "--",
+        "//FlappyKiteTests:FlappyKiteTests",
+        "//FlappyKiteUITests:FlappyKiteUITests",
+      ]
     cache:
       paths:
         - ".cache"
       size: "20g"
     plugins:
       - docker-compose#v5.3.0:
-          run: app
+          run: bazel-remote
           config: .buildkite/docker-compose.yml
           shell: false
-          command: ["test", "--config=buildkite", "--", "//..."]
     agents:
       queue: hosted_linux_small

@@ -11,14 +11,8 @@ services:
         "--enable_endpoint_metrics",
       ]
     restart: always
+    network_mode: host
     image: buchgr/bazel-remote-cache:v2.3.3
     user: 0:0
     volumes:
       - ../.cache/bazel/remote:/data:rw
-  app:
-    image: gcr.io/bazel-public/bazel:7.4.1
-    working_dir: /app
-    volumes:
-      - ../:/app
-    depends_on:
-      - bazel-remote
