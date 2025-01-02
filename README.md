@@ -33,6 +33,27 @@ A Bazel workspace has been configured for FlappyKite, with all required `BUILD`,
 `MODULE`, and `WORKSPACE` files included. These are **purely additive** to the
 project and are not required to be used or kept, they can safely be ignored.
 
+### Updating
+
+To update the dependencies, a single target can be used.
+
+```sh
+bazelisk run @swift_package//:update
+```
+
+It's also quite useful to keep the configuration clean, with another command.
+
+```sh
+bazelisk mod tidy
+```
+
+If larger changes are made, or versions bumped, it's handy to keep the build files
+up-to-date with any changes.
+
+```sh
+bazelisk run //:update_build_files
+```
+
 ### Building
 
 Similar to the local XCode development, the Sentry configuration is stored within

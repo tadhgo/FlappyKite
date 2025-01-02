@@ -11,10 +11,8 @@ ios_unit_test(
 
 swift_library(
     name = "FlappyKiteTests.library",
+    testonly = True,
     srcs = glob(["**/*.swift"]),
     module_name = "FlappyKiteTests",
-    testonly = True,
-    deps = [
-        "//FlappyKite:FlappyKite.library",
-    ],
+    deps = ["//FlappyKite:FlappyKite.library"],
 )
