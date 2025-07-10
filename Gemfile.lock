@@ -341,11 +341,11 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  cocoapods (~> 1.14)
+  cocoapods
   fastlane
   rake
-  rubocop (~> 1.60)
-  rubocop-rake (~> 0.6)
+  rubocop
+  rubocop-rake
 
 BUNDLED WITH
-   2.6.2
+   2.6.6

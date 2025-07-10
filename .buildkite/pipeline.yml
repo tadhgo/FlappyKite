@@ -1,47 +1,11 @@
 agents:
-  queue: macos-large
+  queue: macos
 
 steps:
-  - label: ":ruby: install dependencies"
-    key: install-dependencies-ruby
-    command: .buildkite/scripts/install-dependencies.sh
+  - label: ":pod: test normal cocoapods"
+    commands:
+      - "bundle exec fastlane test_normal_pods"
 
-  - label: ":macos: build"
-    key: build-apple
-    command: .buildkite/scripts/build.sh
-    depends_on:
-      - install-dependencies-ruby
-
-  - label: ":macos: test"
-    command: .buildkite/scripts/test.sh
-    depends_on:
-      - build-apple
-    artifact_paths:
-      - "fastlane/test_output/report.junit"
-
-  - label: ":macos: :camera: screenshots"
-    command: .buildkite/scripts/screenshots.sh
-    depends_on:
-      - build-apple
-    artifact_paths:
-      - "screenshots/**/*.png"
-
-  - label: ":bazel: build"
-    key: bazel-build
-    command: "bazelisk build //FlappyKite:FlappyKite"
-    cache:
-      paths:
-        - ".cache"
-      size: "20g"
-      name: "bazel"
-
-  - label: ":bazel: test"
-    key: bazel-test
-    depends_on:
-      - bazel-build
-    command: "bazelisk build //FlappyKiteTests:FlappyKiteTests //FlappyKiteUITests:FlappyKiteUITests"
-    cache:
-      paths:
-        - ".cache"
-      size: "20g"
-      name: "bazel"
+  - label: ":pod: test clean cocoapods" 
+    commands:
+      - "bundle exec fastlane test_clean_pods"
