@@ -7,6 +7,7 @@ target 'FlappyKite' do
 
   # Pods for FlappyKite
   pod 'Alamofire', '~> 5.0'
+  pod 'SwiftyJSON', '~> 5.0'
 
   target 'FlappyKiteTests' do
     inherit! :search_paths
