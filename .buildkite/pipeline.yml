@@ -4,8 +4,10 @@ agents:
 steps:
   - label: ":pod: test normal cocoapods"
     commands:
+      - "bundle install"
       - "bundle exec fastlane test_normal_pods"
 
   - label: ":pod: test clean cocoapods" 
     commands:
+      - "bundle install"
       - "bundle exec fastlane test_clean_pods"
