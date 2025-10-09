@@ -2,8 +2,11 @@
 
 source 'https://rubygems.org'
 
+gem 'abbrev'
 gem 'cocoapods', '~> 1.14'
-gem 'fastlane', '~> 2.223', '>= 2.223.1'
+gem 'fastlane', '~> 2.228.0'
+gem 'mutex_m'
+gem 'ostruct'
 gem 'rake'
 gem 'rubocop', '~> 1.60'
 gem 'rubocop-rake', '~> 0.6'
