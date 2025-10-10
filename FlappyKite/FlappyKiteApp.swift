@@ -24,7 +24,7 @@ struct FlappyKiteApp: App {
             // Enable tracing to capture 100% of transactions for tracing.
             // Use 'options.tracesSampleRate' to set the sampling rate.
             // We recommend setting a sample rate in production.
-            options.enableTracing = true
+            options.tracesSampleRate = 1.0
         }
     }
     
