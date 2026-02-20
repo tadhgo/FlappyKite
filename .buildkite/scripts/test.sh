@@ -19,7 +19,7 @@ sed \
 # xcodebuild clean test -clonedSourcePackagesDirPath SwiftPackages -scheme FlappyKite -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.0' | xcbeautify
 
 echo "-- :ruby: Installing dependencies..."
-bundle install
+bundle install --path .cache/bundler
 
 echo "--- :xcode: Testing :xcode:"
 bundle exec fastlane tests

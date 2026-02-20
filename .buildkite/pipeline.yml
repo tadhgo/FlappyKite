@@ -1,6 +1,11 @@
 agents:
   queue: macos
 
+cache:
+  paths:
+    - ".cache/bundler"
+  name: "gems"
+
 steps:
   - label: ":ruby: install dependencies"
     key: install-dependencies-ruby
@@ -30,7 +35,7 @@ steps:
             - file_path: /tmp/FlappyKiteTestDev.mobileprovision
           prep_command: |
             echo "$${PROFILE_BASE64}" | base64 -d > /tmp/FlappyKiteTestDev.mobileprovision
-            bundle install
+            bundle install --path .cache/bundler
           command: bundle exec fastlane build
 
   - label: ":macos: test"
