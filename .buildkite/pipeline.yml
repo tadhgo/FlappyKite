@@ -22,7 +22,7 @@ steps:
       - PROFILE_BASE64
       - DEVELOPMENT_TEAM
     plugins:
-      - tadhgo/apple-signing-setup-buildkite-plugin#v1.0.0:
+      - tadhgo/apple-signing-setup#v1.0.0:
           certificate:
             base64_env: CERT_BASE64
             password_env: CERT_PASS
