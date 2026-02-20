@@ -16,7 +16,17 @@
 default_platform(:ios)
 
 platform :ios do
-  desc 'Description of what the lane does'
+  desc 'Build and archive a signed app using fastlane gym'
+  lane :build do
+    gym(
+      scheme: 'FlappyKite',
+      export_method: 'development',
+      team_id: ENV['DEVELOPMENT_TEAM'],
+      xcargs: 'CODE_SIGN_STYLE=Manual PROVISIONING_PROFILE_SPECIFIER=FlappyKiteTestDev'
+    )
+  end
+
+  desc 'Run unit and UI tests'
   lane :tests do
     run_tests(
       scheme: 'FlappyKite',
