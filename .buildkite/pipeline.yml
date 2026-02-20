@@ -20,7 +20,7 @@ steps:
   - label: ":lock: build with code signing"
     key: build-apple-signed
     depends_on:
-      - install-dependencies-ruby
+      - build-apple
     secrets:
       - CERT_BASE64
       - CERT_PASS
@@ -42,20 +42,21 @@ steps:
   - label: ":macos: test"
     command: .buildkite/scripts/test.sh
     depends_on:
-      - build-apple
+      - build-apple-signed
     artifact_paths:
       - "fastlane/test_output/report.junit"
 
   - label: ":macos: :camera: screenshots"
     command: .buildkite/scripts/screenshots.sh
     depends_on:
-      - build-apple-signed
       - bazel-test
     artifact_paths:
       - "screenshots/**/*.png"
 
   - label: ":bazel: build"
     key: bazel-build
+    depends_on:
+      - build-apple-signed
     command: |
       bazelisk build //FlappyKite:FlappyKite
     cache:
