@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'abbrev'
 gem 'cocoapods', '~> 1.14'
-gem 'fastlane', '~> 2.228.0'
+gem 'fastlane', '~> 2.232.1'
 gem 'mutex_m'
 gem 'ostruct'
 gem 'rake'
