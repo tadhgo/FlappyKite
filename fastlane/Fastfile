@@ -16,19 +16,17 @@
 default_platform(:ios)
 
 platform :ios do
+  before_all do
+    sh('cp Config.xcconfig.template Config.xcconfig')
+  end
+
   desc 'Build and archive a signed app using fastlane gym'
   lane :build do
     gym(
       scheme: 'FlappyKite',
       export_method: 'development',
       export_team_id: ENV['DEVELOPMENT_TEAM'],
-      skip_profile_detection: true,
-      xcargs: "CODE_SIGN_STYLE=Manual PROVISIONING_PROFILE_SPECIFIER=FlappyKiteTestDev DEVELOPMENT_TEAM=#{ENV['DEVELOPMENT_TEAM']}",
-      export_options: {
-        provisioningProfiles: {
-          'com.buildkite.flappykite' => 'FlappyKiteTestDev'
-        }
-      }
+      xcargs: "DEVELOPMENT_TEAM=#{ENV['DEVELOPMENT_TEAM']} CODE_SIGN_STYLE=Manual PROVISIONING_PROFILE_SPECIFIER=FlappyKiteTestDev"
     )
   end
 

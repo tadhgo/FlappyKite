@@ -35,7 +35,6 @@ steps:
             - file_path: /tmp/FlappyKiteTestDev.mobileprovision
           prep_command: |
             echo "$${PROFILE_BASE64}" | base64 -d > /tmp/FlappyKiteTestDev.mobileprovision
-            sed -e "s|__SENTRY_DSN_HOST_REPLACE__||g" -e "s|__SENTRY_DSN_PATH__||g" Config.xcconfig.template > Config.xcconfig
             bundle config set path '.cache/bundler'
             bundle install
           command: bundle exec fastlane build
