@@ -8,5 +8,6 @@ BUILDKITE_CACHE_MOUNT_PATH="${NSC_CACHE_PATH:-.cache/buildkite}"
 
 # Install dependencies
 echo "-- :ruby: Installing dependencies..."
-bundle install --path .cache/bundler
+bundle config set path '.cache/bundler'
+bundle install
 

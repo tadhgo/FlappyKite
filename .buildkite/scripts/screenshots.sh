@@ -16,7 +16,8 @@ sed \
     Config.xcconfig.template > Config.xcconfig
 
 echo "-- :ruby: Installing dependencies..."
-bundle install --path .cache/bundler
+bundle config set path '.cache/bundler'
+bundle install
 
 echo "--- :xcode: Testing :xcode:"
 bundle exec fastlane snapshot
