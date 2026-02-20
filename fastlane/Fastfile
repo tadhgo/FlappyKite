@@ -17,7 +17,7 @@ default_platform(:ios)
 
 platform :ios do
   before_all do
-    sh('cp Config.xcconfig.template Config.xcconfig')
+    sh('cp ../Config.xcconfig.template ../Config.xcconfig')
   end
 
   desc 'Build and archive a signed app using fastlane gym'
