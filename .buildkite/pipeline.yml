@@ -15,12 +15,12 @@ steps:
     key: build-apple
     command: .buildkite/scripts/build.sh
     depends_on:
-      - install-dependencies-ruby
+      - build-apple-signed
 
   - label: ":lock: build with code signing"
     key: build-apple-signed
     depends_on:
-      - build-apple
+      - install-dependencies-ruby
     secrets:
       - CERT_BASE64
       - CERT_PASS
