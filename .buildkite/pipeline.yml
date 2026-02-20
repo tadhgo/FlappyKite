@@ -32,11 +32,9 @@ steps:
             base64_env: CERT_BASE64
             password_env: CERT_PASS
           provisioning_profiles:
-            - file_path: /tmp/FlappyKiteTestDev.mobileprovision
+            - file_path: /tmp/FlappyKite.mobileprovision
           prep_command: |
-            echo "$${PROFILE_BASE64}" | base64 -d > /tmp/FlappyKiteTestDev.mobileprovision
-            bundle config set path '.cache/bundler'
-            bundle install
+            echo "$${PROFILE_BASE64}" | base64 -d > /tmp/FlappyKite.mobileprovision
           command: bundle exec fastlane build
 
   - label: ":macos: test"

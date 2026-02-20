@@ -25,7 +25,6 @@ platform :ios do
     gym(
       scheme: 'FlappyKite',
       skip_package_ipa: true,
-      export_team_id: ENV['DEVELOPMENT_TEAM'],
       xcargs: "DEVELOPMENT_TEAM=#{ENV['DEVELOPMENT_TEAM']} CODE_SIGN_STYLE=Manual PROVISIONING_PROFILE_SPECIFIER='FlappyKite Development'"
     )
   end
