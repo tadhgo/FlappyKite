@@ -43,7 +43,8 @@ steps:
   - label: ":macos: :camera: screenshots"
     command: .buildkite/scripts/screenshots.sh
     depends_on:
-      - build-apple
+      - build-apple-signed
+      - bazel-test
     artifact_paths:
       - "screenshots/**/*.png"
 

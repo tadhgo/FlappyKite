@@ -6,7 +6,7 @@ SOURCE=${BASH_SOURCE[0]}
 
 BUILDKITE_CACHE_MOUNT_PATH="${NSC_CACHE_PATH:-.cache/buildkite}"
 
-echo "--- :homebrew: Installing dependencies :homebrew:"
+echo "--- Installing dependencies"
 brew install xcbeautify
 
 echo "--- :bash: Configure application for testing :bash:"

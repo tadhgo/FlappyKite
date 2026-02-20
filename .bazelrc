@@ -1,6 +1,8 @@
 common --show_timestamps --enable_platform_specific_config --experimental_convenience_symlinks=ignore
 common --enable_bzlmod
 
+build --disk_cache=.cache
+
 build --cxxopt='-std=c++14'
 build --action_env SENTRY_DSN_PATH= --action_env SENTRY_DSN_HOST=
 
