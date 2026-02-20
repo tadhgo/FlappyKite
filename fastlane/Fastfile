@@ -26,7 +26,7 @@ platform :ios do
       scheme: 'FlappyKite',
       export_method: 'development',
       export_team_id: ENV['DEVELOPMENT_TEAM'],
-      xcargs: "DEVELOPMENT_TEAM=#{ENV['DEVELOPMENT_TEAM']} CODE_SIGN_STYLE=Manual PROVISIONING_PROFILE_SPECIFIER=FlappyKiteTestDev"
+      xcargs: "DEVELOPMENT_TEAM=#{ENV['DEVELOPMENT_TEAM']} CODE_SIGN_STYLE=Manual PROVISIONING_PROFILE_SPECIFIER=com.buildkite.FlappyKite"
     )
   end
 
